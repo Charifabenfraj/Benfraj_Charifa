@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { useRef } from 'react';
-import { FaCode, FaExternalLinkAlt, FaGithub, FaBrain, FaChartBar, FaBuilding, FaVideo, FaGraduationCap, FaEye, FaArrowLeft, FaTimes, FaChevronLeft, FaChevronRight, FaImages } from 'react-icons/fa';
+import { FaCode, FaExternalLinkAlt, FaGithub, FaBrain, FaChartBar, FaBuilding, FaGraduationCap, FaEye, FaArrowLeft, FaTimes, FaChevronLeft, FaChevronRight, FaImages } from 'react-icons/fa';
 
 type Category = 'all' | 'dev' | 'bi' | 'ml';
 
