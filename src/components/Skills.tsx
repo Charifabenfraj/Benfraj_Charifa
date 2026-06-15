@@ -12,19 +12,6 @@ import {
 } from 'react-icons/si';
 import { useTranslation } from '../hooks/useTranslation';
 
-interface Skill {
-  name: string;
-  icon?: React.ReactNode;
-  color?: string;
-}
-
-interface SkillCategory {
-  title: string;
-  icon: React.ReactNode;
-  skills: Skill[];
-  isCarousel?: boolean;
-}
-
 const Skills: React.FC = () => {
   const { t } = useTranslation();
 

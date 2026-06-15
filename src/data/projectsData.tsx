@@ -1,4 +1,4 @@
-import { FaCode, FaBuilding, FaGraduationCap, FaBrain, FaChartBar, FaPlane } from 'react-icons/fa';
+import { FaCode, FaBuilding, FaGraduationCap, FaPlane } from 'react-icons/fa';
 import type { ReactNode } from 'react';
 
 const allImages = import.meta.glob<{ default: string }>(

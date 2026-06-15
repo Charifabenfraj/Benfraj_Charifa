@@ -6,7 +6,7 @@ import { useTranslation } from '../hooks/useTranslation';
 
 const ThemeLanguageToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useTranslation();
+  const { language, setLanguage } = useTranslation();
 
   return (
     <div className="fixed top-4 right-4 z-50 flex items-center space-x-4">
@@ -19,7 +19,7 @@ const ThemeLanguageToggle: React.FC = () => {
       </button>
       
       <button
-        onClick={toggleLanguage}
+        onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
         className="p-2 rounded-full bg-opacity-20 hover:bg-opacity-30 transition-all duration-200 bg-gray-800 dark:bg-white text-white dark:text-gray-800"
         aria-label={language === 'fr' ? 'Switch to English' : 'Passer en français'}
       >
