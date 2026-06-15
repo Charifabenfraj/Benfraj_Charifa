@@ -10,6 +10,7 @@ import {
   SiOdoo, SiPostgresql, SiNodedotjs,
   SiTypescript, SiJavascript, SiHtml5, SiCss3,
 } from 'react-icons/si';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface Skill {
   name: string;
@@ -25,9 +26,11 @@ interface SkillCategory {
 }
 
 const Skills: React.FC = () => {
-  const skillCategories: SkillCategory[] = [
+  const { t } = useTranslation();
+
+  const skillCategories = [
     {
-      title: 'Frameworks & Langages',
+      title: t('skills.frameworks'),
       icon: <FaCode className="h-6 w-6" />,
       isCarousel: true,
       skills: [
@@ -46,7 +49,7 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      title: 'BI & Data',
+      title: t('skills.bi'),
       icon: <FaChartBar className="h-6 w-6" />,
       skills: [
         { name: 'Power BI', icon: <FaChartBar />, color: '#F2C811' },
@@ -58,7 +61,7 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      title: 'Bases de données',
+      title: t('skills.databases'),
       icon: <FaDatabase className="h-6 w-6" />,
       skills: [
         { name: 'SQL' },
@@ -69,7 +72,7 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      title: 'Automatisation & Outils',
+      title: t('skills.automation'),
       icon: <FaCogs className="h-6 w-6" />,
       skills: [
         { name: 'n8n' },
@@ -101,7 +104,7 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Mes compétences</h2>
+          <h2 className="section-title">{t('skills.title')}</h2>
         </motion.div>
 
         <motion.div

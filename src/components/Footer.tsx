@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { FaArrowUp, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-scroll';
+import { useTranslation } from '../hooks/useTranslation';
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-[var(--bleu-marine)] text-white py-12">
@@ -41,7 +43,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Accueil
+              {t('nav.home')}
             </Link>
             <Link
               to="about"
@@ -51,7 +53,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              À propos
+              {t('nav.about')}
             </Link>
             <Link
               to="skills"
@@ -61,7 +63,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Compétences
+              {t('nav.skills')}
             </Link>
             <Link
               to="experience"
@@ -71,7 +73,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Expériences
+              {t('nav.experience')}
             </Link>
             <Link
               to="projects"
@@ -81,7 +83,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Projets
+              {t('nav.projects')}
             </Link>
             <Link
               to="education"
@@ -91,7 +93,7 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Formation
+              {t('nav.education')}
             </Link>
             <Link
               to="contact"
@@ -101,38 +103,40 @@ const Footer: React.FC = () => {
               duration={500}
               className="hover:text-[var(--violet-clair)] transition-colors duration-300 cursor-pointer"
             >
-              Contact
+              {t('nav.contact')}
             </Link>
           </div>
 
           {/* Réseaux sociaux */}
-<div className="flex space-x-4 mb-8">
-  <a
-    href="https://www.linkedin.com/in/charifa-ben-fraj-919074233/" 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
-  >
-    <FaLinkedin className="h-5 w-5" />
-  </a>
-  <a
-    href="https://github.com/Charifabenfraj"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
-  >
-    <FaGithub className="h-5 w-5" />  {/* Icône GitHub */}
-  </a>
-  <a
-    href="mailto:charifabenfraj20@gmail.com"
-    className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
-  >
-    <FaEnvelope className="h-5 w-5" />
-  </a>
-</div>
+          <div className="flex justify-center space-x-4 mb-8">
+            <a
+              href="https://www.linkedin.com/in/charifa-ben-fraj-919074233/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/Charifabenfraj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
+            >
+              <FaGithub className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:charifabenfraj20@gmail.com"
+              className="bg-[var(--bleu-marine-clair)] p-3 rounded-full hover:bg-[var(--violet)] transition-colors duration-300"
+            >
+              <FaEnvelope className="h-5 w-5" />
+            </a>
+          </div>
 
-{/* Copyright */}
-          
+          {/* Copyright */}
+          <div className="text-center text-gray-500 text-sm">
+            {t('footer.copyright')}
+          </div>
         </div>
       </div>
     </footer>

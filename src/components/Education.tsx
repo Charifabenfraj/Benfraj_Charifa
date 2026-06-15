@@ -1,31 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { FaGraduationCap } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Education: React.FC = () => {
-  const educations = [
-    {
-      degree: 'Cycle d\'ingénieur en informatique',
-      institution: 'ESPRIT',
-      location: 'Tunis',
-      period: 'Depuis septembre 2024',
-      description: 'Formation d\'ingénieur en informatique avec spécialisation en développement logiciel.'
-    },
-    {
-      degree: 'Licence en technologie de l\'informatique',
-      institution: 'Institut Supérieur des Études Technologiques Kélibia',
-      location: 'Kélibia',
-      period: 'De septembre 2021 à juin 2024',
-      description: 'Formation en informatique appliquée avec focus sur le développement web et mobile.'
-    },
-    {
-      degree: 'Baccalauréat science expérimentale',
-      institution: 'Lycée Mohamed Boudhina',
-      location: 'Hammamet',
-      period: 'Juin 2021',
-      description: 'Diplôme de fin d\'études secondaires avec spécialisation en sciences expérimentales.'
-    }
-  ];
+  const { t } = useTranslation();
 
   return (
     <section className="light-section py-20">
@@ -36,7 +15,7 @@ const Education: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Formation</h2>
+          <h2 className="section-title">{t('education.title')}</h2>
         </motion.div>
 
         <div className="mt-12 relative">
@@ -44,9 +23,13 @@ const Education: React.FC = () => {
           <div className="hidden md:block absolute top-8 left-0 w-full h-1 bg-[var(--violet-clair)] rounded-full"></div>
 
           <div className="flex flex-col md:flex-row md:justify-between space-y-8 md:space-y-0">
-            {educations.map((edu, index) => (
+            {[
+              { key: 'edu1', degree: t('education.edu1.degree'), institution: t('education.edu1.institution'), location: t('education.edu1.location'), period: t('education.edu1.period'), description: t('education.edu1.description') },
+              { key: 'edu2', degree: t('education.edu2.degree'), institution: t('education.edu2.institution'), location: t('education.edu2.location'), period: t('education.edu2.period'), description: t('education.edu2.description') },
+              { key: 'edu3', degree: t('education.edu3.degree'), institution: t('education.edu3.institution'), location: t('education.edu3.location'), period: t('education.edu3.period'), description: t('education.edu3.description') },
+            ].map((edu, index) => (
               <motion.div
-                key={index}
+                key={edu.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -69,7 +52,7 @@ const Education: React.FC = () => {
                 {/* Contenu */}
                 <div className="bg-gray-50/90 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-full border border-gray-100 dark:border-gray-700">
                   {/* Période (visible uniquement en desktop) */}
-                  <div className="hidden md:block text-[var(--violet)] font-semibold mb-4 text-center">
+                  <div className="hidden md:block text-[var(--violet)] font-semibold mb-4 text-left">
                     {edu.period}
                   </div>
                   
@@ -77,7 +60,7 @@ const Education: React.FC = () => {
                   <h4 className="text-[var(--violet-clair)] font-semibold mb-3">
                     {edu.institution}, {edu.location}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300 text-justify sm:text-center lg:text-justify">{edu.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-left">{edu.description}</p>
                 </div>
               </motion.div>
             ))}

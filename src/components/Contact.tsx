@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPaperPlane, FaPhone } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,11 +32,11 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-16 text-left"
         >
-          <h2 className="section-title text-white">Contactez-moi</h2>
-          <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-            Vous pouvez me contacter directement par email, téléphone ou via LinkedIn.
+          <h2 className="section-title text-white">{t('contact.title')}</h2>
+          <p className="text-gray-300 mt-4 max-w-2xl">
+            {t('contact.description')}
           </p>
           <a
             href="/Charifa_BEN_FRAJ_cv.pdf"
@@ -42,7 +44,7 @@ const Contact: React.FC = () => {
             className="inline-flex items-center gap-2 mt-6 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold py-3 px-6 rounded-full transition-all duration-300 backdrop-blur-sm"
           >
             <FaDownload className="w-4 h-4" />
-            Télécharger mon CV
+            {t('contact.downloadCV')}
           </a>
         </motion.div>
 
@@ -55,7 +57,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-lg"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">Mes coordonnées</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">{t('contact.myCoordinates')}</h3>
 
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -66,7 +68,7 @@ const Contact: React.FC = () => {
                     <FaEnvelope className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Email</h4>
+                    <h4 className="text-white font-semibold">{t('contact.email')}</h4>
                     <a href="mailto:charifabenfraj20@gmail.com" className="text-gray-300 hover:text-white transition-colors">
                       charifabenfraj20@gmail.com
                     </a>
@@ -79,7 +81,7 @@ const Contact: React.FC = () => {
                     <FaPhone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Téléphone</h4>
+                    <h4 className="text-white font-semibold">{t('contact.phone')}</h4>
                     <a href="tel:+21627998555" className="text-gray-300 hover:text-white transition-colors">
                       +216 27 998 555
                     </a>
@@ -92,8 +94,8 @@ const Contact: React.FC = () => {
                     <FaMapMarkerAlt className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Localisation</h4>
-                    <p className="text-gray-300">Nabeul, Hammamet, Tunisie</p>
+                    <h4 className="text-white font-semibold">{t('contact.location')}</h4>
+                    <p className="text-gray-300 text-left">{t('contact.locationValue')}</p>
                   </div>
                 </div>
                 
@@ -145,11 +147,11 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="bg-white/10 backdrop-blur-sm p-8 rounded-xl shadow-lg"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">Envoyez-moi un message</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">{t('contact.sendMessage')}</h3>
             
             <div className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-white mb-2">Nom</label>
+                <label htmlFor="name" className="block text-white mb-2">{t('contact.name')}</label>
                 <input
                   type="text"
                   id="name"
@@ -162,7 +164,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-white mb-2">Email</label>
+                <label htmlFor="email" className="block text-white mb-2">{t('contact.email')}</label>
                 <input
                   type="email"
                   id="email"
@@ -175,7 +177,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-white mb-2">Message</label>
+                <label htmlFor="message" className="block text-white mb-2">{t('contact.message')}</label>
                 <textarea
                   id="message"
                   name="message"
@@ -191,7 +193,7 @@ const Contact: React.FC = () => {
                 type="submit"
                 className="w-full bg-white text-[var(--violet)] font-semibold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center space-x-2"
               >
-                <span>Envoyer</span>
+                <span>{t('contact.send')}</span>
                 <FaPaperPlane />
               </button>
             </div>

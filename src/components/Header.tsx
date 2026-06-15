@@ -1,11 +1,12 @@
-import { Briefcase, Code, FolderOpen, GraduationCap, Home, Mail, Menu, User, X } from 'lucide-react';
+import { Briefcase, Code, FolderOpen, GraduationCap, Home, Mail, Menu, User, X, Globe } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { useTranslation } from '../hooks/useTranslation';
+import { useTranslation, type Language } from '../hooks/useTranslation';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
@@ -16,16 +17,33 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const { t } = useTranslation();
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-lang-switcher]')) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  const { t, language, setLanguage } = useTranslation();
+
+  const languages: { code: Language; label: string }[] = [
+    { code: 'fr', label: 'FR' },
+    { code: 'en', label: 'EN' },
+    { code: 'ar', label: 'AR' }
+  ];
 
   const navLinks = [
-    { to: 'home', label: t('home'), icon: Home },
-    { to: 'about', label: t('about'), icon: User },
-    { to: 'skills', label: t('skills'), icon: Code },
-    { to: 'experience', label: t('experience'), icon: Briefcase },
-    { to: 'projects', label: t('projects'), icon: FolderOpen },
-    { to: 'education', label: t('education'), icon: GraduationCap },
-    { to: 'contact', label: t('contact'), icon: Mail },
+    { to: 'home', label: t('nav.home'), icon: Home },
+    { to: 'about', label: t('nav.about'), icon: User },
+    { to: 'skills', label: t('nav.skills'), icon: Code },
+    { to: 'experience', label: t('nav.experience'), icon: Briefcase },
+    { to: 'projects', label: t('nav.projects'), icon: FolderOpen },
+    { to: 'education', label: t('nav.education'), icon: GraduationCap },
+    { to: 'contact', label: t('nav.contact'), icon: Mail },
   ];
 
   const handleSetActive = (to: string) => {
@@ -76,6 +94,37 @@ const Header = () => {
                 </span>
               </div>
             </Link>
+
+            {/* Sélecteur de langue */}
+            <div className="relative hidden sm:block" data-lang-switcher>
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="group relative px-3 py-2 rounded-full transition-all duration-300 flex items-center gap-2 cursor-pointer text-white hover:bg-[var(--violet)]/20"
+              >
+                <div className="absolute inset-0 bg-[var(--violet)]/0 group-hover:bg-[var(--violet)]/10 transition-all duration-300 rounded-full"></div>
+                <Globe className="w-4 h-4 relative z-10" />
+                <span className="relative z-10 text-sm font-medium">{languages.find(l => l.code === language)?.label}</span>
+              </button>
+              {isLangOpen && (
+                <div className="absolute right-0 top-full mt-2 w-36 bg-[var(--bleu-marine)] rounded-xl border border-[var(--violet)]/30 shadow-xl z-50">
+                  <div className="py-2">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
+                        className={`w-full px-4 py-2 text-left transition-colors flex items-center gap-2 ${
+                          language === lang.code
+                            ? 'bg-[var(--violet)]/20 text-white'
+                            : 'text-gray-300 hover:text-white hover:bg-[var(--violet)]/10'
+                        }`}
+                      >
+                        <span>{lang.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Navigation desktop avec icônes */}
             <nav className="hidden lg:flex items-center space-x-2">

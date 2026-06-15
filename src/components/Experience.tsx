@@ -1,31 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { FaBriefcase } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Experience: React.FC = () => {
-  const experiences = [
-    {
-      title: 'Stage d\'Été - Solution Automatisée',
-      company: 'Coworky',
-      location: 'Nabeul',
-      date: '07/2025 – 08/2026',
-      description: 'Développement d\'une solution automatisée de génération de contenu éducatif à partir de supports multimédias (vidéos, PPTX, PDF), en combinant développement web et intelligence artificielle.',
-    },
-    {
-      title: 'Projet de fin d\'études (PFE)',
-      company: 'ICONE CONCEPT',
-      location: 'Hammamet',
-      date: '01/2024 – 06/2024',
-      description: 'Développement d\'une application web et mobile de mailing et de gestion de la vente/location de serveurs en ligne, destinée aux entreprises de campagnes d\'e-mailing.',
-    },
-    {
-      title: 'Stage de perfectionnement',
-      company: 'YES-INTERNET',
-      location: 'Hammamet',
-      date: '01/2023',
-      description: 'Développement d\'une application web d\'e-learning permettant aux utilisateurs de découvrir, s\'inscrire et participer à des formations en ligne.',
-    },
-  ];
+  const { t } = useTranslation();
 
   return (
     <section className="dark-section py-20">
@@ -36,7 +15,7 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title text-white">Expériences professionnelles</h2>
+          <h2 className="section-title text-white">{t('experience.title')}</h2>
         </motion.div>
 
         <div className="mt-16 relative">
@@ -44,15 +23,19 @@ const Experience: React.FC = () => {
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-[var(--violet-clair)] rounded-full"></div>
 
           {/* Expériences */}
-          {experiences.map((exp, index) => (
+          {[
+            { key: 'exp1', title: t('experience.exp1.title'), company: t('experience.exp1.company'), location: t('experience.exp1.location'), date: t('experience.exp1.date'), description: t('experience.exp1.description') },
+            { key: 'exp2', title: t('experience.exp2.title'), company: t('experience.exp2.company'), location: t('experience.exp2.location'), date: t('experience.exp2.date'), description: t('experience.exp2.description') },
+            { key: 'exp3', title: t('experience.exp3.title'), company: t('experience.exp3.company'), location: t('experience.exp3.location'), date: t('experience.exp3.date'), description: t('experience.exp3.description') },
+          ].map((exp, index) => (
             <motion.div
-              key={index}
+              key={exp.key}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               className={`relative mb-12 md:mb-24 ${
-                index % 2 === 0 ? 'md:pr-12 md:text-right md:ml-0 md:mr-auto' : 'md:pl-12 md:ml-auto md:mr-0'
+                index % 2 === 0 ? 'md:pr-12 md:ml-0 md:mr-auto' : 'md:pl-12 md:ml-auto md:mr-0'
               } w-full md:w-1/2 pl-12 md:pl-0`}
             >
               {/* Point sur la timeline */}
@@ -69,7 +52,7 @@ const Experience: React.FC = () => {
                 <h4 className="text-[var(--violet-clair)] font-semibold mb-3">
                   {exp.company}, {exp.location}
                 </h4>
-                <p className="text-gray-300 text-justify">{exp.description}</p>
+                <p className="text-gray-300 text-left">{exp.description}</p>
               </div>
             </motion.div>
           ))}

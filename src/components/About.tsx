@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { FaLanguage, FaUser } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslation';
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
+
   const languages = [
-    { name: 'Français', level: 80 },
-    { name: 'Arabe', level: 100 },
-    { name: 'Anglais', level: 65 }
+    { name: t('about.languagesList.fr'), level: 80 },
+    { name: t('about.languagesList.ar'), level: 100 },
+    { name: t('about.languagesList.en'), level: 65 }
   ];
 
   return (
@@ -18,7 +21,7 @@ const About: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">À propos de moi</h2>
+          <h2 className="section-title">{t('about.title')}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-10">
@@ -35,28 +38,28 @@ const About: React.FC = () => {
                 <FaUser className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Qui suis-je</h3>
-                <p className="text-gray-800 text-justify sm:text-center lg:text-justify max-w-2xl mx-auto">
-                  Étudiante en deuxième année du cycle d'ingénieur à ESPRIT, spécialisée en Business Intelligence, passionnée par le développement web et mobile. Sérieuse, motivée et curieuse, je cherche à renforcer mes compétences techniques à travers des projets concrets, notamment dans les domaines du développement full stack et de l'analyse de données.
+                <h3 className="text-xl font-semibold mb-2">{t('about.whoAmI')}</h3>
+                <p className="text-gray-800 text-left max-w-2xl">
+                  {t('about.whoAmIDescription')}
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
               <div className="bg-gray-50/90 dark:bg-gray-800/50 backdrop-blur-sm p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-1 dark:text-gray-200">Nom</h4>
-                <p className="dark:text-gray-300">Charifa BEN FRAJ</p>
+                <h4 className="font-semibold mb-1 dark:text-gray-200">{t('about.name')}</h4>
+                <p className="dark:text-gray-300">{t('about.nameValue')}</p>
               </div>
               <div className="bg-gray-50/90 dark:bg-gray-800/50 backdrop-blur-sm p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <h4 className="font-semibold mb-1">Email</h4>
+                <h4 className="font-semibold mb-1">{t('about.email')}</h4>
                 <p>charifabenfraj20@gmail.com</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md">
-                <h4 className="font-semibold mb-1">Localisation</h4>
-                <p>Nabeul, Hammamet</p>
+                <h4 className="font-semibold mb-1">{t('about.location')}</h4>
+                <p>{t('about.locationValue')}</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md">
-                <h4 className="font-semibold mb-1">Téléphone</h4>
+                <h4 className="font-semibold mb-1">{t('about.phone')}</h4>
                 <p>+216 27 998 555</p>
               </div>
             </div>
@@ -75,9 +78,9 @@ const About: React.FC = () => {
                 <FaLanguage className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Langues</h3>
-                <p className="text-gray-700">
-                  Je maîtrise plusieurs langues qui me permettent de communiquer efficacement dans différents contextes professionnels.
+                <h3 className="text-xl font-semibold mb-2">{t('about.languages')}</h3>
+                <p className="text-gray-700 text-left">
+                  {t('about.languagesDescription')}
                 </p>
               </div>
             </div>

@@ -4,8 +4,10 @@ import { FaArrowDown, FaDownload, FaEye } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import photo from '../photos/charifa_photo.jpg';
 import TypedReact from './TypedReact';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0a2a] via-[#1a1a4a] to-[#2d1b69] relative overflow-hidden flex items-center">
       {/* Ciel étoilé animé avec étoiles filantes */}
@@ -94,7 +96,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-2"
+            className="w-full lg:w-1/2 text-left order-2 lg:order-2"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -102,21 +104,21 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-[0_2px_10px_rgba(139,92,246,0.3)]"
             >
-              Charifa <span className="text-[var(--violet)] bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">BEN FRAJ</span>
+              {t('hero.name')}
             </motion.h1>
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-[var(--violet-clair)] min-h-[60px] flex items-center justify-center lg:justify-start drop-shadow-[0_2px_8px_rgba(139,92,246,0.2)]"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-[var(--violet-clair)] min-h-[60px] flex items-center justify-start drop-shadow-[0_2px_8px_rgba(139,92,246,0.2)]"
             >
               <TypedReact
                 strings={[
-                  'Développeuse Web Full Stack',
-                  'Spécialiste Business Intelligence',
-                  'Passionnée par la Data & l\'IA',
-                  'Étudiante en Ingénierie',
+                  t('hero.role1'),
+                  t('hero.role2'),
+                  t('hero.role3'),
+                  t('hero.role4'),
                 ]}
                 typeSpeed={60}
                 backSpeed={40}
@@ -128,18 +130,16 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-lg sm:text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl mx-auto lg:mx-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+              className="text-lg sm:text-xl mb-8 text-gray-200 leading-relaxed max-w-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
             >
-              Étudiante en 2ème année du cycle d'ingénieur en Business Intelligence à ESPRIT, passionnée par
-              l'analyse de données, l'intelligence artificielle et le développement d'applications. Je développe
-              des solutions intelligentes combinant data, automatisation et visualisation.
+              {t('hero.description')}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-start"
             >
               <a
                 href="/Charifa_BEN_FRAJ_cv.pdf"
@@ -147,7 +147,7 @@ const Hero: React.FC = () => {
                 className="inline-flex items-center gap-2 bg-[var(--violet)] hover:bg-[var(--violet-clair)] text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-[var(--violet)]/30 hover:shadow-[var(--violet)]/50"
               >
                 <FaDownload className="w-4 h-4" />
-                Télécharger CV
+                {t('hero.downloadCV')}
               </a>
               <a
                 href="/Charifa_BEN_FRAJ_cv.pdf"
@@ -156,7 +156,7 @@ const Hero: React.FC = () => {
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold py-3 px-6 rounded-full transition-all duration-300 backdrop-blur-sm"
               >
                 <FaEye className="w-4 h-4" />
-                Consulter CV
+                {t('hero.viewCV')}
               </a>
             </motion.div>
           </motion.div>

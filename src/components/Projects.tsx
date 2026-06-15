@@ -1,27 +1,24 @@
 import { motion } from 'framer-motion';
 import React, { useRef } from 'react';
-import { FaCode, FaExternalLinkAlt, FaGithub, FaBrain, FaChartBar, FaBuilding, FaGraduationCap, FaEye, FaArrowLeft, FaTimes, FaChevronLeft, FaChevronRight, FaImages } from 'react-icons/fa';
+import { FaCode, FaExternalLinkAlt, FaGithub, FaBrain, FaChartBar, FaEye, FaArrowLeft, FaTimes, FaChevronLeft, FaChevronRight, FaImages } from 'react-icons/fa';
+import { projects, type Project } from '../data/projectsData';
+import { useTranslation } from '../hooks/useTranslation';
 
 type Category = 'all' | 'dev' | 'bi' | 'ml';
 
-interface Project {
-  title: string;
-  description: string;
-  longDescription?: string;
-  technologies: string[];
-  category: Category;
-  context: string;
-  contextIcon: React.ReactNode;
-  coverImage?: string;
-  photos?: string[];
-  links?: {
-    demo?: string;
-    code?: string;
-    video?: string;
-  };
-}
+const projectsTranslationKeys: Record<string, string> = {
+  'InternMatch': 'InternMatch',
+  'Travel Agency': 'TravelAgency',
+  'Application d\'Évaluation Automatique': 'EvalAuto',
+  'Application de Mailing & Gestion Serveurs': 'MailingApp',
+  'Application E-Learning': 'ELearning',
+  'Event Management Analytics Platform': 'EventManagement',
+  'Plant Disease Detection App': 'PlantGuard',
+  'Smart Gym Analytics Platform': 'GYMVision',
+};
 
 const Projects: React.FC = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = React.useState<Category>('all');
@@ -51,148 +48,22 @@ const Projects: React.FC = () => {
     }
   };
 
-  const projects: Project[] = [
-    {
-      title: 'InternMatch',
-      description: 'Plateforme intelligente de mise en relation candidats/entreprises avec un système AI qui analyse les CV, recommande des tests techniques et propose des offres de stage personnalisées.',
-      longDescription: 'InternMatch est une application React complète qui révolutionne la recherche de stages en utilisant l\'intelligence artificielle. Le système analyse le CV du candidat via n8n, lui recommande des tests techniques adaptés à son profil et à l\'offre cible, puis matche automatiquement les candidats avec les entreprises pertinentes. L\'IA évalue les compétences, identifie les écarts et fournit des recommandations d\'amélioration personnalisées pour maximiser les chances de succès du candidat. Le workflow n8n orchestre toute la chaîne : parsing du CV, scoring des compétences, recommandation de tests, et mise en relation intelligente.',
-      technologies: ['React', 'n8n', 'AI/ML', 'Python', 'CV Parsing', 'Matching Algorithm'],
-      category: 'dev',
-      context: 'Projet Personnel',
-      contextIcon: <FaCode className="w-3 h-3" />,
-      coverImage: '/projects/InternMatch/capture-1.png',
-      photos: [
-        '/projects/InternMatch/capture-1.png',
-        '/projects/InternMatch/capture-2.png',
-        '/projects/InternMatch/capture-3.png',
-        '/projects/InternMatch/capture-4.png',
-        '/projects/InternMatch/capture-5.png',
-        '/projects/InternMatch/capture-6.png',
-        '/projects/InternMatch/capture-7.png',
-        '/projects/InternMatch/capture-8.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj' }
-    },
-    {
-      title: 'Application d\'Évaluation Automatique',
-      description: 'Solution automatisée de génération de contenu éducatif à partir de supports multimédias (vidéos, PPTX, PDF). Système qui génère des tests et évalue automatiquement les étudiants via n8n.',
-      longDescription: 'Développée lors de mon stage chez Coworky, cette application permet d\'automatiser le processus pédagogique. Le système analyse les supports de cours multimédias (vidéos, présentations PowerPoint, documents PDF) et génère automatiquement des questionnaires et des évaluations adaptés. L\'intégration de n8n permet d\'orchestrer le workflow complet, de l\'extraction du contenu à la génération automatique des tests et à l\'évaluation des réponses des étudiants.',
-      technologies: ['React', 'n8n', 'Python', 'PDF Processing', 'Automatisation'],
-      category: 'dev',
-      context: 'Stage - Coworky',
-      contextIcon: <FaBuilding className="w-3 h-3" />,
-      coverImage: '/projects/Education_APP/capture-1.png',
-      photos: [
-        '/projects/Education_APP/capture-1.png',
-        '/projects/Education_APP/capture-2.png',
-        '/projects/Education_APP/capture-3.png',
-        '/projects/Education_APP/capture-4.png',
-        '/projects/Education_APP/capture-5.png',
-        '/projects/Education_APP/capture-6.png',
-        '/projects/Education_APP/capture-7.png',
-        '/projects/Education_APP/capture-8.png',
-        '/projects/Education_APP/capture-9.png',
-        '/projects/Education_APP/capture-10.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj' }
-    },
-    {
-      title: 'Application de Mailing & Gestion Serveurs',
-      description: 'Application web et mobile de mailing et de gestion de la vente/location de serveurs en ligne, destinée aux entreprises de campagnes d\'e-mailing.',
-      longDescription: 'Projet de fin d\'études réalisé chez ICONE CONCEPT, cette application fullstack gère l\'ensemble du cycle de vie des campagnes d\'e-mailing. Elle comprend un tableau de bord pour la gestion des serveurs SMTP, la création et l\'envoi de campagnes de mailing, le suivi des statistiques d\'ouverture et de clics, ainsi que la gestion de la vente et location de serveurs en ligne. Développée avec React pour le frontend et Django pour le backend, avec une API RESTful robuste.',
-      technologies: ['React', 'Django', 'MySQL', 'REST API'],
-      category: 'dev',
-      context: 'PFE - ICONE CONCEPT',
-      contextIcon: <FaGraduationCap className="w-3 h-3" />,
-      links: { code: 'https://github.com/Charifabenfraj' }
-    },
-    {
-      title: 'Application E-Learning',
-      description: 'Application web d\'e-learning permettant aux utilisateurs de découvrir, s\'inscrire et participer à des formations en ligne.',
-      longDescription: 'Réalisée lors de mon stage chez YES-INTERNET, cette plateforme d\'apprentissage en ligne offre une expérience complète aux apprenants. Les utilisateurs peuvent explorer le catalogue de formations, s\'inscrire aux cours qui les intéressent, suivre les vidéos et supports de cours, passer des évaluations et suivre leur progression. Le back-end Symfony gère la logique métier, la gestion des utilisateurs, des formations et des inscriptions avec MySQL comme base de données.',
-      technologies: ['Symfony', 'PHP', 'MySQL', 'Bootstrap'],
-      category: 'dev',
-      context: 'Stage - YES-INTERNET',
-      contextIcon: <FaBuilding className="w-3 h-3" />,
-      coverImage: '/projects/E-Learning/capture-1.png',
-      photos: [
-        '/projects/E-Learning/capture-1.png',
-        '/projects/E-Learning/capture-2.png',
-        '/projects/E-Learning/capture-3.png',
-        '/projects/E-Learning/capture-4.png',
-        '/projects/E-Learning/capture-5.png',
-        '/projects/E-Learning/capture-6.png',
-        '/projects/E-Learning/capture-7.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj' }
-    },
-    {
-      title: 'Event Management Analytics Platform',
-      description: 'Plateforme de gestion d\'événements utilisant Power BI, le Machine Learning et n8n pour analyser les performances, prédire la participation et automatiser les processus.',
-      longDescription: 'Ce projet académique combine Business Intelligence et Machine Learning pour offrir une plateforme complète de gestion d\'événements. Power BI est utilisé pour créer des tableaux de bord interactifs analysant les performances des événements passés. Les modèles de Machine Learning prédisent la participation future en se basant sur des données historiques. n8n automatisé les workflows entre les différents outils, permettant une analyse en temps réel et des alertes intelligentes.',
-      technologies: ['Power BI', 'DAX', 'n8n', 'Machine Learning', 'Python'],
-      category: 'bi',
-      context: 'Projet Académique',
-      contextIcon: <FaGraduationCap className="w-3 h-3" />,
-      coverImage: '/projects/Event_Management/capture-1.png',
-      photos: [
-        '/projects/Event_Management/capture-1.png',
-        '/projects/Event_Management/capture-2.png',
-        '/projects/Event_Management/capture-3.png',
-        '/projects/Event_Management/capture-4.png',
-        '/projects/Event_Management/capture-5.png',
-        '/projects/Event_Management/capture-6.png',
-        '/projects/Event_Management/capture-7.png',
-        '/projects/Event_Management/capture-8.png',
-        '/projects/Event_Management/capture-9.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj/EVENTZELLA_Project' }
-    },
-    {
-      title: 'Plant Disease Detection App',
-      description: 'Application utilisant le Machine Learning pour détecter les maladies des plantes à partir d\'images et proposer des recommandations de traitement.',
-      longDescription: 'Cette application de vision par ordinateur utilise des réseaux de neurones convolutifs (CNN) entraînés pour identifier les maladies des plantes à partir de photos. L\'utilisateur prend une photo de la plante malade, le modèle de Deep Learning analyse l\'image et retourne le diagnostic avec un pourcentage de confiance. L\'application propose ensuite des recommandations de traitement adaptées à la maladie détectée. Le stack combine TensorFlow pour le modèle ML, Flask pour l\'API et React pour l\'interface utilisateur.',
-      technologies: ['Python', 'TensorFlow', 'CNN', 'React', 'Flask'],
-      category: 'ml',
-      context: 'Projet Académique',
-      contextIcon: <FaGraduationCap className="w-3 h-3" />,
-      coverImage: '/projects/PlantGuard_AI/capture-1.png',
-      photos: [
-        '/projects/PlantGuard_AI/capture-1.png',
-        '/projects/PlantGuard_AI/capture-2.png',
-        '/projects/PlantGuard_AI/capture-3.png',
-        '/projects/PlantGuard_AI/capture-4.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj/PlantGuard_AI' }
-    },
-    {
-      title: 'Smart Gym Analytics Platform',
-      description: 'Système intelligent de recommandation pour salle de sport utilisant le Machine Learning pour la segmentation des clients et la recommandation personnalisée d\'activités.',
-      longDescription: 'GYMVISION est une plateforme d\'analytics intelligente pour salles de sport. Utilisant l\'algorithme K-Means pour la segmentation client et Scikit-learn pour les modèles de recommandation, le système analyse les habitudes d\'entraînement des membres pour leur proposer des programmes personnalisés. Power BI offre des visualisations avancées des performances de la salle, et Streamlit fournit une interface interactive pour l\'exploration des données et les prédictions.',
-      technologies: ['Python', 'Scikit-learn', 'Power BI', 'K-Means', 'Streamlit'],
-      category: 'ml',
-      context: 'Projet Académique',
-      contextIcon: <FaGraduationCap className="w-3 h-3" />,
-      coverImage: '/projects/GYMVision/capture-1.png',
-      photos: [
-        '/projects/GYMVision/capture-1.png',
-        '/projects/GYMVision/capture-2.png',
-        '/projects/GYMVision/capture-3.png',
-        '/projects/GYMVision/capture-4.png',
-        '/projects/GYMVision/capture-5.png',
-        '/projects/GYMVision/capture-6.png',
-        '/projects/GYMVision/capture-7.png',
-        '/projects/GYMVision/capture-8.png',
-      ],
-      links: { code: 'https://github.com/Charifabenfraj/GYMVISION' }
-    },
-  ];
+
+
+  const getProjectTranslation = (projectTitle: string, field: 'description' | 'longDescription') => {
+    const key = projectsTranslationKeys[projectTitle];
+    if (key) {
+      const val = t(`projects.items.${key}.${field}`);
+      return val !== `projects.items.${key}.${field}` ? val : undefined;
+    }
+    return undefined;
+  };
 
   const filters: { key: Category; label: string; icon: React.ReactNode }[] = [
-    { key: 'all', label: 'Tous', icon: <FaCode className="w-4 h-4" /> },
-    { key: 'dev', label: 'Développement', icon: <FaCode className="w-4 h-4" /> },
-    { key: 'bi', label: 'Business Intelligence', icon: <FaChartBar className="w-4 h-4" /> },
-    { key: 'ml', label: 'Machine Learning', icon: <FaBrain className="w-4 h-4" /> },
+    { key: 'all', label: t('projects.all'), icon: <FaCode className="w-4 h-4" /> },
+    { key: 'dev', label: t('projects.dev'), icon: <FaCode className="w-4 h-4" /> },
+    { key: 'bi', label: t('projects.bi'), icon: <FaChartBar className="w-4 h-4" /> },
+    { key: 'ml', label: t('projects.ml'), icon: <FaBrain className="w-4 h-4" /> },
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -219,9 +90,9 @@ const Projects: React.FC = () => {
 
   const getCategoryLabel = (category: Category) => {
     switch (category) {
-      case 'dev': return 'Développement';
-      case 'bi': return 'BI & Data';
-      case 'ml': return 'Machine Learning';
+      case 'dev': return t('projects.dev');
+      case 'bi': return t('projects.bi');
+      case 'ml': return t('projects.ml');
       default: return '';
     }
   };
@@ -240,7 +111,7 @@ const Projects: React.FC = () => {
             className="flex items-center gap-2 mb-8 px-5 py-2.5 rounded-xl bg-white text-[var(--violet)] hover:bg-[var(--violet)] hover:text-white font-semibold transition-all duration-300 shadow-sm border border-gray-100"
           >
             <FaArrowLeft className="w-4 h-4" />
-            Retour aux projets
+            {t('projects.backToProjects')}
           </motion.button>
 
           {/* Header */}
@@ -261,10 +132,10 @@ const Projects: React.FC = () => {
                 {selectedProject.context}
               </span>
               {photos.length > 0 && (
-                <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[var(--violet)]/10 text-[var(--violet)]">
-                  <FaImages className="w-3 h-3" />
-                  {photos.length} captures
-                </span>
+                  <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[var(--violet)]/10 text-[var(--violet)]">
+                    <FaImages className="w-3 h-3" />
+                    {photos.length} {t('projects.captures')}
+                  </span>
               )}
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-[var(--bleu-marine)] mb-6 leading-tight">{selectedProject.title}</h1>
@@ -293,9 +164,9 @@ const Projects: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-12 bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
           >
-            <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-4">Description</h2>
-            <p className="text-gray-600 leading-relaxed text-lg">
-              {selectedProject.longDescription || selectedProject.description}
+            <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-4">{t('projects.description')}</h2>
+            <p className="text-gray-600 leading-relaxed text-lg text-left">
+              {getProjectTranslation(selectedProject.title, 'longDescription') || selectedProject.longDescription || selectedProject.description}
             </p>
           </motion.div>
 
@@ -306,7 +177,7 @@ const Projects: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-12 bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
           >
-            <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-4">Technologies utilisées</h2>
+            <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-4">{t('projects.technologies')}</h2>
             <div className="flex flex-wrap gap-3">
               {selectedProject.technologies.map((tech, idx) => (
                 <span
@@ -327,7 +198,7 @@ const Projects: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mb-12 bg-white rounded-3xl p-8 shadow-sm border border-gray-100"
             >
-              <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-6">Captures d'écran</h2>
+              <h2 className="text-2xl font-bold text-[var(--bleu-marine)] mb-6">{t('projects.screenshots')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {photos.map((photo, idx) => (
                   <motion.div
@@ -365,7 +236,7 @@ const Projects: React.FC = () => {
                   className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--bleu-marine)] to-[var(--bleu-marine-clair)] text-white font-bold hover:shadow-lg hover:shadow-[var(--bleu-marine)]/25 transition-all duration-300 hover:-translate-y-1"
                 >
                   <FaGithub className="w-5 h-5" />
-                  Voir le code source
+                  {t('projects.sourceCode')}
                 </a>
               )}
               {selectedProject.links.demo && (
@@ -376,7 +247,7 @@ const Projects: React.FC = () => {
                   className="flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[var(--violet)] to-[var(--violet-clair)] text-white font-bold hover:shadow-lg hover:shadow-[var(--violet)]/25 transition-all duration-300 hover:-translate-y-1"
                 >
                   <FaExternalLinkAlt className="w-5 h-5" />
-                  Démo live
+                  {t('projects.liveDemo')}
                 </a>
               )}
             </motion.div>
@@ -450,7 +321,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Mes projets</h2>
+          <h2 className="section-title">{t('projects.title')}</h2>
         </motion.div>
 
         {/* Filtres */}
@@ -524,10 +395,10 @@ const Projects: React.FC = () => {
                       {getCategoryLabel(project.category)}
                     </span>
                     {project.photos && project.photos.length > 0 && (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-bold bg-white/95 text-gray-700 shadow-lg">
-                        <FaImages className="w-3 h-3" />
-                        {project.photos.length}
-                      </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-bold bg-white/95 text-gray-700 shadow-lg">
+                      <FaImages className="w-3 h-3" />
+                      {project.photos.length} {t('projects.captures')}
+                    </span>
                     )}
                   </div>
 
@@ -543,7 +414,7 @@ const Projects: React.FC = () => {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-gray-500 mb-5 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                  <p className="text-gray-500 mb-5 text-sm leading-relaxed line-clamp-2 text-left">{getProjectTranslation(project.title, 'description') || project.description}</p>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-5">
@@ -569,7 +440,7 @@ const Projects: React.FC = () => {
                       className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-gradient-to-r from-[var(--violet)] to-[var(--violet-clair)] text-white text-sm font-bold hover:shadow-lg hover:shadow-[var(--violet)]/30 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                     >
                       <FaEye className="w-4 h-4" />
-                      Voir les détails
+                      {t('projects.viewDetails')}
                     </button>
                     {project.links?.code && (
                       <a

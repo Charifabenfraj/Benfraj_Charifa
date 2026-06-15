@@ -65,7 +65,11 @@
 /* Base styles */
 @layer base {
   body {
-    @apply font-roboto text-gray-800 bg-white;
+    @apply font-roboto text-gray-800 bg-white text-left;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, span, li, td, th, label, div {
+    @apply text-left;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -80,7 +84,7 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+    @apply text-3xl md:text-4xl font-bold mb-8 relative block;
   }
 
   .section-title::after {
