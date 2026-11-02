@@ -1,4 +1,4 @@
-import { FaCode, FaBuilding, FaGraduationCap, FaPlane } from 'react-icons/fa';
+import { FaCode, FaBuilding, FaGraduationCap, FaPlane, FaChartBar } from 'react-icons/fa';
 import type { ReactNode } from 'react';
 
 const allImages = import.meta.glob<{ default: string }>(
@@ -90,8 +90,7 @@ export const projects: Project[] = [
     title: 'Application de Mailing & Gestion Serveurs',
     description: 'Application web et mobile de mailing et de gestion de la vente/location de serveurs en ligne, destinée aux entreprises de campagnes d\'e-mailing.',
     longDescription: 'Projet de fin d\'études réalisé chez ICONE CONCEPT, cette application fullstack gère l\'ensemble du cycle de vie des campagnes d\'e-mailing. Elle comprend un tableau de bord pour la gestion des serveurs SMTP, la création et l\'envoi de campagnes de mailing, le suivi des statistiques d\'ouverture et de clics, ainsi que la gestion de la vente et location de serveurs en ligne. Développée avec React pour le frontend et Django pour le backend, avec une API RESTful robuste.',
-    technologies: ['React', 'Django', 'MySQL', 'REST API'],
-    category: 'dev',
+technologies: ['Flutter', 'Laravel', 'MySQL', 'REST API'],    category: 'dev',
     context: 'PFE - ICONE CONCEPT',
     contextIcon: <FaGraduationCap className="w-3 h-3" />,
     links: { code: 'https://github.com/Charifabenfraj' }
@@ -143,5 +142,15 @@ export const projects: Project[] = [
     coverImage: gymVisionPhotos[0],
     photos: gymVisionPhotos,
     links: { code: 'https://github.com/Charifabenfraj/GYMVISION' }
+  },
+  {
+    title: 'Comparateur de Prix E-commerce',
+    description: 'Projet BI collectant et transformant les données avec SSIS et SQL Server, avec des dashboards Power BI comparant les prix chez Carrefour, Géant, Travel To Do et Touring.',
+    longDescription: 'Projet de Business Intelligence consistant à collecter et transformer des données avec SSIS et SQL Server, puis à concevoir des dashboards Power BI comparant les prix chez Carrefour, Géant, Travel To Do et Touring afin d’analyser les écarts de prix et de soutenir la prise de décision.',
+    technologies: ['Power BI', 'DAX', 'SSIS', 'SQL Server', 'Data Modeling'],
+    category: 'bi',
+    context: 'Projet Académique - BI',
+    contextIcon: <FaChartBar className="w-3 h-3" />,
+    links: { code: 'https://github.com/Charifabenfraj' }
   },
 ];

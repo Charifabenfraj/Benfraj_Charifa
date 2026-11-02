@@ -3,8 +3,22 @@ import React from 'react';
 import { FaBriefcase } from 'react-icons/fa';
 import { useTranslation } from '../hooks/useTranslation';
 
+interface ExperienceItem {
+  title: string;
+  company: string;
+  location: string;
+  date: string;
+  description: string;
+}
+
 const Experience: React.FC = () => {
   const { t } = useTranslation();
+
+  const experiences = Object.entries(
+    t('experience') as unknown as Record<string, ExperienceItem>,
+  )
+    .filter(([key]) => key !== 'title')
+    .map(([, exp]) => exp);
 
   return (
     <section className="dark-section py-20">
@@ -23,13 +37,9 @@ const Experience: React.FC = () => {
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-[var(--violet-clair)] rounded-full"></div>
 
           {/* Expériences */}
-          {[
-            { key: 'exp1', title: t('experience.exp1.title'), company: t('experience.exp1.company'), location: t('experience.exp1.location'), date: t('experience.exp1.date'), description: t('experience.exp1.description') },
-            { key: 'exp2', title: t('experience.exp2.title'), company: t('experience.exp2.company'), location: t('experience.exp2.location'), date: t('experience.exp2.date'), description: t('experience.exp2.description') },
-            { key: 'exp3', title: t('experience.exp3.title'), company: t('experience.exp3.company'), location: t('experience.exp3.location'), date: t('experience.exp3.date'), description: t('experience.exp3.description') },
-          ].map((exp, index) => (
+          {experiences.map((exp, index) => (
             <motion.div
-              key={exp.key}
+              key={exp.title + exp.date}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

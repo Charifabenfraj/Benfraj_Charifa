@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import {
   FaCode, FaDatabase, FaChartBar, FaCogs,
+  FaBrain, FaRobot, FaChartLine, FaChartArea, FaEye,
+  FaImage, FaGitAlt, FaGithub, FaBuilding, FaMicrochip,
 } from 'react-icons/fa';
 import {
   SiReact, SiDjango, SiAngular, SiSymfony, SiPython,
@@ -31,6 +33,8 @@ const Skills: React.FC = () => {
         { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6' },
         { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
         { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933' },
+        { name: 'Next.js', icon: <FaCode />, color: '#000000' },
+        { name: 'Flask', icon: <FaCode />, color: '#000000' },
         { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26' },
         { name: 'CSS3', icon: <SiCss3 />, color: '#1572B6' },
       ],
@@ -42,6 +46,7 @@ const Skills: React.FC = () => {
         { name: 'Power BI', icon: <FaChartBar />, color: '#F2C811' },
         { name: 'DAX' },
         { name: 'SSIS' },
+        { name: 'SSAS', icon: <FaDatabase />, color: '#4479A1' },
         { name: 'Talend', icon: <SiTalend />, color: '#FF6C37' },
         { name: 'R', icon: <SiR />, color: '#276DC3' },
         { name: 'Data Modeling' },
@@ -59,12 +64,37 @@ const Skills: React.FC = () => {
       ],
     },
     {
-      title: t('skills.automation'),
+      title: t('skills.aiDataScience'),
+      icon: <FaBrain className="h-6 w-6" />,
+      skills: [
+        { name: 'Machine Learning', icon: <FaMicrochip />, color: '#3776AB' },
+        { name: 'Deep Learning (CNN)', icon: <FaMicrochip />, color: '#3776AB' },
+        { name: 'LLMs', icon: <FaRobot />, color: '#61DAFB' },
+        { name: 'RAG', icon: <FaCode />, color: '#F7DF1E' },
+        { name: 'Vision par ordinateur', icon: <FaEye />, color: '#F2C811' },
+        { name: 'OpenCV', icon: <FaImage />, color: '#FF6C37' },
+      ],
+    },
+    {
+      title: t('skills.crmErp'),
+      icon: <FaBuilding className="h-6 w-6" />,
+      skills: [
+        { name: 'Microsoft Dynamics 365', icon: <FaBuilding />, color: '#0078D4' },
+        { name: 'Odoo', icon: <SiOdoo />, color: '#875A7B' },
+        { name: 'Power Apps', icon: <FaCode />, color: '#F2C811' },
+        { name: 'n8n' },
+      ],
+    },
+    {
+      title: t('skills.mlopsDevops'),
       icon: <FaCogs className="h-6 w-6" />,
       skills: [
-        { name: 'n8n' },
-        { name: 'Odoo', icon: <SiOdoo />, color: '#875A7B' },
+        { name: 'MLflow', icon: <FaCode />, color: '#F7DF1E' },
         { name: 'Docker', icon: <SiDocker />, color: '#2496ED' },
+        { name: 'Prometheus', icon: <FaChartLine />, color: '#E34F26' },
+        { name: 'Grafana', icon: <FaChartArea />, color: '#F7DF1E' },
+        { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
+        { name: 'GitHub', icon: <FaGithub />, color: '#181717' },
       ],
     },
   ];

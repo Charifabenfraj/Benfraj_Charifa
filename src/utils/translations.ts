@@ -15,14 +15,14 @@ const translations = {
       role2: "Spécialiste Business Intelligence",
       role3: "Passionnée par la Data & l'IA",
       role4: "Étudiante en Ingénierie",
-      description: "Étudiante en 2ème année du cycle d'ingénieur en Business Intelligence à ESPRIT, passionnée par l'analyse de données, l'intelligence artificielle et le développement d'applications. Je développe des solutions intelligentes combinant data, automatisation et visualisation.",
+      description: "Étudiante en 3e année du cycle d'ingénieur à ESPRIT, spécialisée en Business Intelligence. Passionnée par l'analyse de données, l'intelligence artificielle et le développement d'applications, je conçois des solutions intelligentes combinant Data, Deep Learning, automatisation et visualisation pour répondre à des problématiques réelles.",
       downloadCV: "Télécharger CV",
       viewCV: "Consulter CV"
     },
     about: {
       title: "À propos de moi",
       whoAmI: "Qui suis-je",
-      whoAmIDescription: "Étudiante en deuxième année du cycle d'ingénieur à ESPRIT, spécialisée en Business Intelligence, passionnée par le développement web et mobile. Sérieuse, motivée et curieuse, je cherche à renforcer mes compétences techniques à travers des projets concrets, notamment dans les domaines du développement full stack et de l'analyse de données.",
+      whoAmIDescription: "Étudiante en 3e année du cycle d'ingénieur à ESPRIT, spécialisée en Business Intelligence, passionnée par le développement web et mobile, l'analyse de données et l'intelligence artificielle. Sérieuse, motivée et curieuse, je cherche à renforcer mes compétences techniques à travers des projets concrets, notamment dans les domaines du développement full stack, de la Data et du Deep Learning.",
       name: "Nom",
       nameValue: "Charifa BEN FRAJ",
       email: "Email",
@@ -32,9 +32,9 @@ const translations = {
       languages: "Langues",
       languagesDescription: "Je maîtrise plusieurs langues qui me permettent de communiquer efficacement dans différents contextes professionnels.",
       languagesList: {
-        fr: "Français",
-        ar: "Arabe",
-        en: "Anglais"
+        fr: { name: "Français", level: "B2" },
+        ar: { name: "Arabe", level: "Maternelle" },
+        en: { name: "Anglais", level: "B2" }
       }
     },
     skills: {
@@ -42,25 +42,35 @@ const translations = {
       frameworks: "Frameworks & Langages",
       bi: "BI & Data",
       databases: "Bases de données",
+      aiDataScience: "IA & Data Science",
+      crmErp: "CRM, ERP & Low-Code",
+      mlopsDevops: "MLOps & DevOps",
       automation: "Automatisation & Outils"
     },
     experience: {
       title: "Expériences professionnelles",
       exp1: {
-        title: "Stage d'Été - Solution Automatisée",
-        company: "Coworky",
-        location: "Nabeul",
-        date: "07/2025 – 08/2026",
-        description: "Développement d'une solution automatisée de génération de contenu éducatif à partir de supports multimédias (vidéos, PPTX, PDF), en combinant développement web et intelligence artificielle."
+        title: "Stage d'été - SAHM AI Agency",
+        company: "SAHM AI Agency",
+        location: "Tunisie",
+        date: "07/2026 – 09/2026",
+        description: "Développement d'une solution web intégrant le scraping, la préparation des données et un dashboard BI. Modélisation prédictive pour identifier les opportunités commerciales et optimiser la prospection. Intégration d'un système de pointage par reconnaissance faciale et d'un chatbot intelligent."
       },
       exp2: {
+        title: "Stage d'été - Solution Automatisée",
+        company: "Coworky",
+        location: "Nabeul",
+        date: "07/2025 – 08/2025",
+        description: "Développement d'une solution automatisée de génération de contenu éducatif à partir de supports multimédias (vidéos, PPTX, PDF), en combinant développement web et intelligence artificielle."
+      },
+      exp3: {
         title: "Projet de fin d'études (PFE)",
         company: "ICONE CONCEPT",
         location: "Hammamet",
         date: "01/2024 – 06/2024",
         description: "Développement d'une application web et mobile de mailing et de gestion de la vente/location de serveurs en ligne, destinée aux entreprises de campagnes d'e-mailing."
       },
-      exp3: {
+      exp4: {
         title: "Stage de perfectionnement",
         company: "YES-INTERNET",
         location: "Hammamet",
@@ -114,6 +124,10 @@ const translations = {
         GYMVision: {
           description: "Système intelligent de recommandation pour salle de sport utilisant le Machine Learning pour la segmentation des clients et la recommandation personnalisée d'activités.",
           longDescription: "GYMVISION est une plateforme d'analytics intelligente pour salles de sport. Utilisant l'algorithme K-Means pour la segmentation client et Scikit-learn pour les modèles de recommandation, le système analyse les habitudes d'entraînement des membres."
+        },
+        ComparateurPrix: {
+          description: "Comparateur de prix e-commerce — Projet BI collectant et transformant les données avec SSIS et SQL Server, avec des dashboards Power BI comparant les prix chez Carrefour, Géant, Travel To Do et Touring.",
+          longDescription: "Projet de Business Intelligence consistant à collecter et transformer des données avec SSIS et SQL Server, puis à concevoir des dashboards Power BI comparant les prix chez Carrefour, Géant, Travel To Do et Touring afin d'analyser les écarts de prix et de soutenir la prise de décision."
         }
       }
     },
@@ -172,14 +186,14 @@ const translations = {
       role2: "Business Intelligence Specialist",
       role3: "Passionate about Data & AI",
       role4: "Engineering Student",
-      description: "2nd year engineering student in Business Intelligence at ESPRIT, passionate about data analysis, artificial intelligence and application development. I develop intelligent solutions combining data, automation and visualization.",
+      description: "3rd year engineering student in Business Intelligence at ESPRIT. Passionate about data analysis, artificial intelligence and application development, I design intelligent solutions combining Data, Deep Learning, automation and visualization to solve real-world problems.",
       downloadCV: "Download CV",
       viewCV: "View CV"
     },
     about: {
       title: "About Me",
       whoAmI: "Who Am I",
-      whoAmIDescription: "2nd year engineering student at ESPRIT, specialized in Business Intelligence, passionate about web and mobile development. Serious, motivated and curious, I seek to strengthen my technical skills through concrete projects, particularly in full stack development and data analysis.",
+      whoAmIDescription: "3rd year engineering student at ESPRIT, specialized in Business Intelligence, passionate about web and mobile development, data analysis and artificial intelligence. Serious, motivated and curious, I seek to strengthen my technical skills through concrete projects, particularly in full stack development, Data and Deep Learning.",
       name: "Name",
       nameValue: "Charifa BEN FRAJ",
       email: "Email",
@@ -189,9 +203,9 @@ const translations = {
       languages: "Languages",
       languagesDescription: "I master several languages that allow me to communicate effectively in different professional contexts.",
       languagesList: {
-        fr: "French",
-        ar: "Arabic",
-        en: "English"
+        fr: { name: "French", level: "B2" },
+        ar: { name: "Arabic", level: "Native" },
+        en: { name: "English", level: "B2" }
       }
     },
     skills: {
@@ -199,25 +213,35 @@ const translations = {
       frameworks: "Frameworks & Languages",
       bi: "BI & Data",
       databases: "Databases",
+      aiDataScience: "AI & Data Science",
+      crmErp: "CRM, ERP & Low-Code",
+      mlopsDevops: "MLOps & DevOps",
       automation: "Automation & Tools"
     },
     experience: {
       title: "Professional Experience",
       exp1: {
+        title: "Summer Internship - SAHM AI Agency",
+        company: "SAHM AI Agency",
+        location: "Tunisia",
+        date: "07/2026 – 09/2026",
+        description: "Development of a web solution integrating scraping, data preparation and a BI dashboard. Predictive modeling to identify business opportunities and optimize prospecting. Integration of a facial recognition-based time tracking system and an intelligent chatbot."
+      },
+      exp2: {
         title: "Summer Internship - Automated Solution",
         company: "Coworky",
         location: "Nabeul",
-        date: "07/2025 – 08/2026",
+        date: "07/2025 – 08/2025",
         description: "Development of an automated educational content generation solution from multimedia supports (videos, PPTX, PDF), combining web development and artificial intelligence."
       },
-      exp2: {
+      exp3: {
         title: "Final Year Project (PFE)",
         company: "ICONE CONCEPT",
         location: "Hammamet",
         date: "01/2024 – 06/2024",
         description: "Development of a web and mobile application for mailing and server sales/rental management, designed for email campaign companies."
       },
-      exp3: {
+      exp4: {
         title: "Improvement Internship",
         company: "YES-INTERNET",
         location: "Hammamet",
@@ -271,6 +295,10 @@ const translations = {
         GYMVision: {
           description: "Smart recommendation system for gyms using Machine Learning for customer segmentation and personalized activity recommendations.",
           longDescription: "GYMVISION is an intelligent analytics platform for gyms. Using K-Means algorithm for customer segmentation and Scikit-learn for recommendation models, the system analyzes members' training habits."
+        },
+        ComparateurPrix: {
+          description: "E-commerce price comparison — BI project collecting and transforming data with SSIS and SQL Server, with Power BI dashboards comparing prices at Carrefour, Géant, Travel To Do and Touring.",
+          longDescription: "Business Intelligence project consisting of collecting and transforming data with SSIS and SQL Server, then designing Power BI dashboards comparing prices at Carrefour, Géant, Travel To Do and Touring to analyze price gaps and support decision-making."
         }
       }
     },
@@ -329,14 +357,14 @@ const translations = {
       role2: "متخصصة في الذكاء التجاري",
       role3: "متحمسة للبيانات والذكاء الاصطناعي",
       role4: "طالبة هندسة",
-      description: "طالبة في السنة الثانية من دورة الهندسة في الذكاء التجاري في ESPRIT، متحمسة لتحليل البيانات والذكاء الاصطناعي وتطوير التطبيقات. أطور حلولاً ذكية تجمع بين البيانات والأتمتة والتصور.",
+      description: "طالبة في السنة الثالثة من دورة الهندسة في الذكاء التجاري في ESPRIT. متحمسة لتحليل البيانات والذكاء الاصطناعي وتطوير التطبيقات. أطور حلولاً ذكية تجمع بين البيانات والتعلم الآلي والأتمتة والتصور المرئي لحل المشكلات الواقعية.",
       downloadCV: "تحميل السيرة الذاتية",
       viewCV: "عرض السيرة الذاتية"
     },
     about: {
       title: "عني",
       whoAmI: "من أنا",
-      whoAmIDescription: "طالبة في السنة الثانية من دورة الهندسة في ESPRIT، متخصصة في الذكاء التجاري، متحمسة لتطوير الويب والتطبيقات الجوال. جادة ومحفزة وفضولية، أسعى لتعزيز مهاراتي التقنية من خلال مشاريع ملموسة، خاصة في مجالات تطوير الويب الكامل وتحليل البيانات.",
+      whoAmIDescription: "طالبة في السنة الثالثة من دورة الهندسة في ESPRIT، متخصصة في الذكاء التجاري، متحمسة لتطوير الويب والتطبيقات الجوال، وتحليل البيانات والذكاء الاصطناعي. جادة ومحفزة وفضولية، أسعى لتعزيز مهاراتي التقنية من خلال مشاريع ملموسة، خاصة في تطوير الويب الكامل والبيانات والتعلم العميق.",
       name: "الاسم",
       nameValue: "شريفة بن فرج",
       email: "البريد الإلكتروني",
@@ -346,9 +374,9 @@ const translations = {
       languages: "اللغات",
       languagesDescription: "أتقن عدة لغات تتيح لي التواصل بفعالية في سياقات مهنية مختلفة.",
       languagesList: {
-        fr: "الفرنسية",
-        ar: "العربية",
-        en: "الإنجليزية"
+        fr: { name: "الفرنسية", level: "B2" },
+        ar: { name: "العربية", level: "أم" },
+        en: { name: "الإنجليزية", level: "B2" }
       }
     },
     skills: {
@@ -356,26 +384,36 @@ const translations = {
       frameworks: "الأطر واللغات",
       bi: "الذكاء التجاري والبيانات",
       databases: "قواعد البيانات",
+      aiDataScience: "الذكاء الاصطناعي وعلوم البيانات",
+      crmErp: "إدارة علاقات العملاء، تخطيط الموارد وأدوات لا كود",
+      mlopsDevops: "MLOps و devops",
       automation: "الأتمتة والأدوات"
     },
     experience: {
       title: "الخبرة المهنية",
       exp1: {
-        title: "stage صيفي - حل أتمتة",
-        company: "Coworky",
-        location: "نابل",
-        date: "07/2025 – 08/2026",
-        description: "تطوير حل أتمتة لإنتاج المحتوى التعليمي من الوسائط المتعددة (الفيديو، PPTX، PDF)، مع الجمع بين تطوير الويب والذكاء الاصطناعي."
+        title: "تدريب صيفي - SAHM AI Agency",
+        company: "SAHM AI Agency",
+        location: "تونس",
+        date: "07/2026 – 09/2026",
+        description: "تطوير حل ويب يجمع بين الاستخراج، وإعداد البيانات، ولوحة معلومات BI. نمذجة تنبؤية لتحديد فرص العمل وتحسين الاستكشاف التجاري. دمج نظام حضور بالتعرف على الوجه وروبوت محادثة ذكي."
       },
       exp2: {
+        title: "تدريب صيفي - حل أتمتة",
+        company: "Coworky",
+        location: "نابل",
+        date: "07/2025 – 08/2025",
+        description: "تطوير حل أتمتة لإنتاج المحتوى التعليمي من الوسائط المتعددة (الفيديو، PPTX، PDF)، مع الجمع بين تطوير الويب والذكاء الاصطناعي."
+      },
+      exp3: {
         title: "مشروع التخرج (PFE)",
         company: "ICONE CONCEPT",
         location: "الحمامات",
         date: "01/2024 – 06/2024",
         description: "تطوير تطبيق ويب وجوال للبريد الإلكتروني وإدارة بيع/تأجير الخوادم عبر الإنترنت، مخصص لشركات حملات البريد الإلكتروني."
       },
-      exp3: {
-        title: "stage تحسين",
+      exp4: {
+        title: "تدريب تأهيلي",
         company: "YES-INTERNET",
         location: "الحمامات",
         date: "01/2023",
@@ -428,6 +466,10 @@ const translations = {
         GYMVision: {
           description: "نظام توصية ذكي للصالة الرياضية باستخدام التعلم الآلي لتقسيم العملاء وتوصيات الأنشطة المخصصة.",
           longDescription: "GYMVISION منصة تحليلات ذكية للصالات الرياضية. باستخدام خوارزمية K-Means لتقسيم العملاء وScikit-learn لنماذج التوصية، يحلل النظام عادات التدريب للأعضاء."
+        },
+        ComparateurPrix: {
+          description: "مشروع ذكاء تجاري لمقارنة أسعار التجارة الإلكترونية، يجمع ويحول البيانات باستخدام SSIS و SQL Server، مع لوحات معلومات Power BI تقارن الأسعار لدى Carrefour و Géant و Travel To Do و Touring.",
+          longDescription: "مشروع ذكاء تجاري يتكون من جمع وتحويل البيانات باستخدام SSIS و SQL Server، ثم تصميم لوحات معلومات Power BI تقارن الأسعار لدى Carrefour و Géant و Travel To Do و Touring لتحليل الفروق السعرية ودعم اتخاذ القرار."
         }
       }
     },

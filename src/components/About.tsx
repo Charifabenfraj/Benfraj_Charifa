@@ -6,11 +6,11 @@ import { useTranslation } from '../hooks/useTranslation';
 const About: React.FC = () => {
   const { t } = useTranslation();
 
-  const languages = [
-    { name: t('about.languagesList.fr'), level: 80 },
-    { name: t('about.languagesList.ar'), level: 100 },
-    { name: t('about.languagesList.en'), level: 65 }
-  ];
+  const languagePercent: Record<string, number> = { fr: 80, ar: 100, en: 70 };
+  const languages = ['fr', 'ar', 'en'].map((code) => {
+    const info = (t('about.languagesList') as unknown as Record<string, { name: string; level: string }>)[code];
+    return { name: info.name, level: info.level, percent: languagePercent[code] };
+  });
 
   return (
     <section className="light-section py-20">
@@ -90,12 +90,13 @@ const About: React.FC = () => {
                 <div key={index} className="space-y-2">
                   <div className="flex justify-between">
                     <span className="font-medium">{language.name}</span>
-                    <span>{language.level}%</span>
+                    <span>{language.level}</span>
+                    <span className="text-xs text-gray-500">{language.percent}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <motion.div
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${language.level}%` }}
+                      whileInView={{ width: `${language.percent}%` }}
                       transition={{ duration: 1, delay: 0.5 + index * 0.2 }}
                       viewport={{ once: true }}
                       className="h-2.5 rounded-full bg-[var(--violet)]"
